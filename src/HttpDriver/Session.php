@@ -270,7 +270,7 @@ class Session implements SessionInterface
             $neo4j_v4fixed = $statement->text();
             $neo4j_v4fixed = preg_replace("/(\{)(\S*)}/", "\$$2", $statement->text());
             $st = [
-                'statement' => $$neo4j_v4fixed,
+                'statement' => $neo4j_v4fixed,
                 'resultDataContents' => ['REST', 'GRAPH'],
                 'includeStats' => true,
             ];

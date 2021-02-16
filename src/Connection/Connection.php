@@ -174,7 +174,9 @@ class Connection
             $port = isset($params['port']) ? (int) $params['port'] : BoltDriver::DEFAULT_TCP_PORT;
             $uri = sprintf('%s://%s:%d', $params['scheme'], $params['host'], $port);
             if (isset($params['user']) && isset($params['pass'])) {
-                $config = BoltConfiguration::create()->withCredentials($params['user'], $params['pass']);
+                $config = BoltConfiguration::create()
+                    ->withCredentials($params['user'], $params['pass'])
+                    ->withTLSMode(BoltConfiguration::TLSMODE_REQUIRED);
             } else {
                 $config = BoltConfiguration::create()->withCredentials('null', 'null');
             }

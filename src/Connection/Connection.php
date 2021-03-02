@@ -211,7 +211,7 @@ class Connection
      * @return boolean - Return true if bolt-routing is configured
      */
     private function checkInitBoltRouting($config, $forceMode) {
-        if (preg_match('/bolt-routing/', $this->uri)) {
+        if (preg_match('/bolt-routing/', $this->uri) || preg_match('/bolt\+routing/', $this->uri)) {
             $this->boltRouting = true;
             $this->boltRoutingConfig = $config;
             $this->checkSession();
